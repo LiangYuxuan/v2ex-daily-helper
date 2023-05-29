@@ -10,21 +10,21 @@ export default async (cookies: string): Promise<[boolean, string][]> => {
     let response = await got.get('https://www.v2ex.com/', {
         headers: {
             'User-Agent': UserAgent,
-            'Cookie': cookies,
+            Cookie: cookies,
         },
     });
 
     if (response.body.includes('/signin')) {
         logger.error('登录状态已失效');
         reportLog.push([false, '登录状态已失效']);
-        throw reportLog;
+        return reportLog;
     }
 
     response = await got.get('https://www.v2ex.com/mission/daily', {
         headers: {
             'User-Agent': UserAgent,
-            'Cookie': cookies,
-            'Referer': 'https://www.v2ex.com/',
+            Cookie: cookies,
+            Referer: 'https://www.v2ex.com/',
         },
     });
 
@@ -38,7 +38,7 @@ export default async (cookies: string): Promise<[boolean, string][]> => {
     if (result === null) {
         logger.error('无法获取once参数');
         reportLog.push([false, '无法获取once参数']);
-        throw reportLog;
+        return reportLog;
     }
 
     const once = result[1];
@@ -46,8 +46,8 @@ export default async (cookies: string): Promise<[boolean, string][]> => {
     await got.get('https://www.v2ex.com/mission/daily/redeem', {
         headers: {
             'User-Agent': UserAgent,
-            'Cookie': cookies,
-            'Referer': 'https://www.v2ex.com/mission/daily',
+            Cookie: cookies,
+            Referer: 'https://www.v2ex.com/mission/daily',
         },
         searchParams: {
             once,
@@ -57,8 +57,8 @@ export default async (cookies: string): Promise<[boolean, string][]> => {
     response = await got.get('https://www.v2ex.com/mission/daily', {
         headers: {
             'User-Agent': UserAgent,
-            'Cookie': cookies,
-            'Referer': 'https://www.v2ex.com/',
+            Cookie: cookies,
+            Referer: 'https://www.v2ex.com/',
         },
     });
 
