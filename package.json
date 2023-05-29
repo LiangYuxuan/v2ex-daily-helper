@@ -15,9 +15,9 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "got": "^12.6.0",
+    "got": "^12.6.1",
     "node-cron": "^3.0.2",
-    "winston": "^3.8.2"
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "@types/node": "^20.2.3",
