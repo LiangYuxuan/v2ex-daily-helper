@@ -14,7 +14,7 @@
   "author": "Rhythm",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.0",
     "got": "^13.0.0",
     "node-cron": "^3.0.2",
     "winston": "^3.9.0"
@@ -22,8 +22,8 @@
   "devDependencies": {
     "@types/node": "^20.2.3",
     "@types/node-cron": "^3.0.7",
-    "@typescript-eslint/eslint-plugin": "^5.59.7",
-    "@typescript-eslint/parser": "^5.59.7",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
     "eslint": "^8.41.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
