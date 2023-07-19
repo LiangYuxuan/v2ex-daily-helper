@@ -44,6 +44,7 @@ const mainHandler = async () => {
 };
 
 if (cronExp.length > 0) {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     cron.schedule(cronExp, mainHandler, {
         timezone: 'Asia/Shanghai',
     });
@@ -51,4 +52,5 @@ if (cronExp.length > 0) {
     logger.warn('未设定定时执行表达式');
 }
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 mainHandler();
