@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: '16'
 
-      - run: npm install
+      - run: pnpm install
 
-      - run: npm run lint
+      - run: pnpm lint
 
-      - run: npm run build
+      - run: pnpm build
 
       - uses: easingthemes/ssh-deploy@v4.1.8
         with:

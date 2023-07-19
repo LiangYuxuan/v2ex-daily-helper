@@ -30,8 +30,8 @@ vi .env
 4. 开始运行
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm build
 node dist/app.js
 ```
 
