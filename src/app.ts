@@ -27,7 +27,6 @@ const mainHandler = async () => {
     try {
         reportLog = await main(cookies);
     } catch (error) {
-        console.log(error);
         logger.error(error);
         reportLog = [
             [false, (error as Error).message],
