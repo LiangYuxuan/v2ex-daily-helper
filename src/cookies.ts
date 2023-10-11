@@ -1,9 +1,11 @@
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import CryptoES from 'crypto-es';
 import got from 'got';
+
+import logger from './logger.js';
 
 interface EncryptedCookiesData {
     encrypted: string,
@@ -24,7 +26,7 @@ interface Cookie {
 }
 
 interface CookiesData {
-    cookie_data: Record<string, Cookie[]>,
+    cookie_data: Record<string, Cookie[] | undefined>,
     local_storage_data: Record<string, Record<string, string>>,
     update_time: string,
 }
@@ -36,8 +38,10 @@ const COOKIE_CLOUD_KEY = process.env.COOKIE_CLOUD_KEY?.trim() ?? '';
 
 export default async (): Promise<string> => {
     if (COOKIES.length > 0) {
+        logger.info('使用环境变量中的Cookies');
         return COOKIES;
     }
+
     if (
         COOKIE_CLOUD_URL.length > 0
         && COOKIE_CLOUD_UUID.length > 0
@@ -50,16 +54,24 @@ export default async (): Promise<string> => {
             const text = CryptoES.AES.decrypt(response.encrypted, key).toString(CryptoES.enc.Utf8);
             const data = JSON.parse(text) as CookiesData;
 
-            const cookies = data.cookie_data['v2ex.com']
-                .filter((cookie) => cookie.domain === 'v2ex.com' || cookie.domain === '.v2ex.com' || cookie.domain === 'www.v2ex.com')
-                .map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
+            if (data.cookie_data['v2ex.com']) {
+                logger.info('使用CookieCloud中的Cookies');
 
-            return cookies;
+                const cookies = data.cookie_data['v2ex.com']
+                    .filter((cookie) => cookie.domain === 'v2ex.com' || cookie.domain === '.v2ex.com' || cookie.domain === 'www.v2ex.com')
+                    .map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
+
+                return cookies;
+            }
         }
+
+        logger.warn('CookieCloud中未找到v2ex.com的Cookies');
     }
 
     const cookiesFile = path.resolve(fileURLToPath(import.meta.url), '..', '..', '.cookies');
-    const cookies = fs.readFileSync(cookiesFile, { encoding: 'utf-8' }).trim();
+    const cookies = await fs.readFile(cookiesFile, { encoding: 'utf-8' });
+
+    logger.info('使用本地文件的Cookies');
 
     return cookies;
 };

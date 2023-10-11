@@ -9,29 +9,32 @@ import pushToPushDeer from './push.js';
 const pushKey = process.env.PUSHKEY ?? '';
 const cronExp = process.env.CRON_EXP ?? '';
 
-const mainHandler = async () => {
-    let reportLog: [boolean, string][];
-    try {
-        const cookies = await getCookies();
-        reportLog = await main(cookies);
-    } catch (error) {
-        logger.error(error);
-        reportLog = [
-            [false, (error as Error).message],
-        ];
-    }
+const coreHandler = async () => {
+    await main(await getCookies());
+};
 
-    if (pushKey.length > 0) {
-        const status = reportLog.every((value) => value[0]);
-        const reportText = reportLog.map((value) => `${value[0] ? '✅' : '❌'}${value[1]}`).join('\n\n');
-        await pushToPushDeer(pushKey, `# ${status ? '✅V2EX每日签到成功' : '❌V2EX每日签到失败'}`, reportText);
-    } else {
-        logger.warn('未设定PushKey');
-    }
+const mainHandler = () => {
+    coreHandler()
+        .catch((error) => {
+            logger.error((error as Error).message);
+        })
+        .finally(() => {
+            if (pushKey.length > 0) {
+                const { isAllSuccess, pushText } = logger.getPushInfo();
+                pushToPushDeer(pushKey, `# ${isAllSuccess ? '✅V2EX每日签到成功' : '❌V2EX每日签到失败'}`, pushText.join('\n\n'))
+                    .then(() => {
+                        logger.clearPushInfo();
+                    })
+                    .catch((error) => {
+                        logger.error((error as Error).message);
+                    });
+            } else {
+                logger.warn('未设定PushKey');
+            }
+        });
 };
 
 if (cronExp.length > 0) {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     cron.schedule(cronExp, mainHandler, {
         timezone: 'Asia/Shanghai',
     });
@@ -39,5 +42,4 @@ if (cronExp.length > 0) {
     logger.warn('未设定定时执行表达式');
 }
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
 mainHandler();
