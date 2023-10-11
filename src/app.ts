@@ -1,30 +1,18 @@
-import path from 'path';
-import fs from 'fs';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import cron from 'node-cron';
 
 import logger from './logger.js';
+import getCookies from './cookies.js';
 import main from './main.js';
 import pushToPushDeer from './push.js';
-
-dotenv.config();
 
 const pushKey = process.env.PUSHKEY ?? '';
 const cronExp = process.env.CRON_EXP ?? '';
 
-let cookies = process.env.COOKIES?.trim() ?? '';
-if (cookies.length === 0) {
-    try {
-        cookies = fs.readFileSync(path.resolve(process.cwd(), '.cookies'), { encoding: 'utf-8' }).trim();
-    } catch (error) {
-        logger.crit('载入.cookies文件失败: %o', error);
-        process.exit(-1);
-    }
-}
-
 const mainHandler = async () => {
     let reportLog: [boolean, string][];
     try {
+        const cookies = await getCookies();
         reportLog = await main(cookies);
     } catch (error) {
         logger.error(error);
