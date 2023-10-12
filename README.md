@@ -29,7 +29,7 @@ V2EX签到自动化脚本
 ```bash
 vi .env
 docker pull rhyster/v2ex-daily-helper:latest
-docker run --rm --env-file .env -name v2ex rhyster/v2ex-daily-helper:latest
+docker run --rm --env-file .env --name v2ex rhyster/v2ex-daily-helper:latest
 ```
 
 ### Node
