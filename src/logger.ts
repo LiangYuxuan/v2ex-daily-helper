@@ -24,6 +24,9 @@ const logger = winston.createLogger({
 let isAllSuccess = true;
 const pushText = [] as string[];
 const expose = {
+    debug: (text: string) => {
+        logger.debug(text);
+    },
     info: (text: string, allSuccess = true) => {
         isAllSuccess &&= allSuccess;
 
