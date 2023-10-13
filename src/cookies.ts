@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import CryptoES from 'crypto-es';
 import got from 'got';
 
-import logger from './logger.js';
+import logger from './logger.ts';
 
 interface EncryptedCookiesData {
     encrypted: string,
