@@ -30,7 +30,7 @@ export default async (cookies: string) => {
         return;
     }
 
-    const [once] = mission.body.match(/redeem\?once=([^']*)'/) ?? [];
+    const [, once] = mission.body.match(/redeem\?once=([^']*)'/) ?? [] as (string | undefined)[];
     if (once === undefined) {
         logger.error('无法获取once参数');
         return;
