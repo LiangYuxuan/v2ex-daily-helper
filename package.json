@@ -14,17 +14,17 @@
   "author": "Rhythm",
   "license": "MIT",
   "dependencies": {
-    "crypto-es": "^2.0.4",
+    "crypto-es": "^2.1.0",
     "dotenv": "^16.3.1",
     "got": "^13.0.0",
     "node-cron": "^3.0.2",
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.8",
     "@types/node-cron": "^3.0.10",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
