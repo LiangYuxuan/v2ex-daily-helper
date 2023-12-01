@@ -36,7 +36,7 @@ docker run --rm --env-file .env --name v2ex rhyster/v2ex-daily-helper:latest
 
 1. 运行环境
 
-需要环境 Node.js >= 14.18.2
+需要环境 Node.js >= 20.10.0
 
 2. 配置
 
