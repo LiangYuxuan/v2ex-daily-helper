@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "crypto-es": "^2.1.0",
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.1",
     "got": "^14.0.0",
     "node-cron": "^3.0.3",
     "winston": "^3.11.0"
