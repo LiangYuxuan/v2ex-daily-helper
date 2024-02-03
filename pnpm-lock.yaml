@@ -12,8 +12,8 @@ dependencies:
     specifier: ^16.4.1
     version: 16.4.1
   got:
-    specifier: ^14.1.0
-    version: 14.1.0
+    specifier: ^14.2.0
+    version: 14.2.0
   node-cron:
     specifier: ^3.0.3
     version: 3.0.3
@@ -1119,8 +1119,8 @@ packages:
       get-intrinsic: 1.2.0
     dev: true
 
-  /got@14.1.0:
-    resolution: {integrity: sha512-jGmSBfxa7jOGg464azcsf/cUlJBZldU8edFpiVebIJrVBE4vqVx0t3Z2f1kz1WrcMvLgQREoC/l2ttDmSHwyRg==}
+  /got@14.2.0:
+    resolution: {integrity: sha512-dBq2KkHcQl3AwPoIWsLsQScCPpUgRulz1qZVthjPYKYOPmYfBnekR3vxecjZbm91Vc3JUGnV9mqFX7B+Fe2quw==}
     engines: {node: '>=20'}
     dependencies:
       '@sindresorhus/is': 6.1.0
