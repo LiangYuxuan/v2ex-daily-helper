@@ -15,7 +15,7 @@ const coreHandler = async () => {
 
 const mainHandler = () => {
     coreHandler()
-        .catch((error) => {
+        .catch((error: unknown) => {
             logger.error((error as Error).message);
         })
         .finally(() => {
@@ -25,7 +25,7 @@ const mainHandler = () => {
                     .then(() => {
                         logger.clearPushInfo();
                     })
-                    .catch((error) => {
+                    .catch((error: unknown) => {
                         logger.error((error as Error).message);
                     });
             } else {
