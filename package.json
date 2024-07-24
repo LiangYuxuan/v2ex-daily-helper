@@ -16,12 +16,12 @@
   "dependencies": {
     "crypto-es": "^2.1.0",
     "dotenv": "^16.4.5",
-    "got": "^14.4.1",
+    "got": "^14.4.2",
     "node-cron": "^3.0.3",
     "winston": "^3.13.1"
   },
   "devDependencies": {
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "@types/node-cron": "^3.0.11",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
