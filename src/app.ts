@@ -29,7 +29,6 @@ const mainHandler = () => {
                         logger.clearPushInfo();
                     })
                     .catch((error: unknown) => {
-                        console.error((error as Error).message);
                         console.error(error);
                     });
             } else {
