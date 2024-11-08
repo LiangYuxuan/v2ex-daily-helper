@@ -68,7 +68,7 @@ const evpkdf = (
     };
 };
 
-export default async (): Promise<string> => {
+export default async (host: string): Promise<string> => {
     if (COOKIES.length > 0) {
         logger.info('使用环境变量中的Cookies');
         return COOKIES;
@@ -98,17 +98,17 @@ export default async (): Promise<string> => {
             ]).toString('utf-8');
             const data = JSON.parse(text) as CookiesData;
 
-            if (data.cookie_data['v2ex.com']) {
+            if (data.cookie_data[host]) {
                 logger.info('使用CookieCloud中的Cookies');
 
-                const cookies = data.cookie_data['v2ex.com']
-                    .filter((cookie) => cookie.domain === '.v2ex.com')
+                const cookies = data.cookie_data[host]
+                    .filter((cookie) => cookie.domain.endsWith(host))
                     .map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
 
                 return cookies;
             }
 
-            logger.warn('CookieCloud中未找到v2ex.com的Cookies');
+            logger.warn(`CookieCloud中未找到${host}的Cookies`);
         }
 
         logger.warn('CookieCloud中未找到Cookies');
