@@ -12,7 +12,7 @@ const pushKey = process.env.PUSHKEY ?? '';
 const cronExp = process.env.CRON_EXP ?? '';
 
 const coreHandler = async () => {
-    await main(await getCookies('v2ex.com'));
+    await main(await getCookies('v2ex.com', 'www.v2ex.com'));
 };
 
 const mainHandler = () => {

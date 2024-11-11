@@ -68,7 +68,15 @@ const evpkdf = (
     };
 };
 
-export default async (host: string): Promise<string> => {
+const isDomainMatch = (cookieDomain: string, domain: string): boolean => {
+    if (cookieDomain.startsWith('.')) {
+        return domain.endsWith(cookieDomain.substring(1));
+    }
+
+    return domain === cookieDomain;
+};
+
+export default async (host: string, domain: string): Promise<string> => {
     if (COOKIES.length > 0) {
         logger.info('使用环境变量中的Cookies');
         return COOKIES;
@@ -102,7 +110,7 @@ export default async (host: string): Promise<string> => {
                 logger.info('使用CookieCloud中的Cookies');
 
                 const cookies = data.cookie_data[host]
-                    .filter((cookie) => cookie.domain.endsWith(host))
+                    .filter((cookie) => isDomainMatch(cookie.domain, domain))
                     .map((cookie) => `${cookie.name}=${cookie.value}`).join('; ');
 
                 return cookies;
