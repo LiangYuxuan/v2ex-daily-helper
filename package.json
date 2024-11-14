@@ -1,8 +1,9 @@
 {
   "name": "v2ex-daily-helper",
-  "version": "1.0.0",
   "type": "module",
   "private": true,
+  "author": "Rhythm",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --project ./",
     "start": "tsx src/app.ts",
@@ -10,9 +11,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "keywords": [],
-  "author": "Rhythm",
-  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.4.5",
     "node-cron": "^3.0.3",
