@@ -18,9 +18,9 @@
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.6.18",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.10",
     "@types/node-cron": "^3.0.11",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "typescript": "^5.7.3"
   },
   "packageManager": "pnpm@9.15.4"
