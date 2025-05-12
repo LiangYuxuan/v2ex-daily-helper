@@ -12,8 +12,8 @@ importers:
         specifier: ^16.5.0
         version: 16.5.0
       node-cron:
-        specifier: ^4.0.2
-        version: 4.0.2
+        specifier: ^4.0.3
+        version: 4.0.3
       tsx:
         specifier: ^4.19.4
         version: 4.19.4
@@ -1001,8 +1001,8 @@ packages:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
 
-  node-cron@4.0.2:
-    resolution: {integrity: sha512-4BV3BhtiuREnTACMr5f2CpX6zRsMWGmqcQzm3Mvl125L6ly8rvnkQZ9w1Wyii+8acjDJL3aPdp0ZMmjFtIPAHg==}
+  node-cron@4.0.3:
+    resolution: {integrity: sha512-YPEUlbYGgpfN44OtCm4KkK4TXjeIB4arERbDWP7kJgM+QHFK9AdM6/3bp4M3oB1QBrL5INyTRLAPei87j49foA==}
     engines: {node: '>=6.0.0'}
 
   nth-check@2.1.1:
@@ -2288,7 +2288,7 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  node-cron@4.0.2: {}
+  node-cron@4.0.3: {}
 
   nth-check@2.1.1:
     dependencies:
