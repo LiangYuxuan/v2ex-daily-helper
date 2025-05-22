@@ -12,8 +12,8 @@ importers:
         specifier: ^16.5.0
         version: 16.5.0
       node-cron:
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.7
+        version: 4.0.7
       tsx:
         specifier: ^4.19.4
         version: 4.19.4
@@ -833,8 +833,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-cron@4.0.6:
-    resolution: {integrity: sha512-T294pDgew/Nec/uXRoAcEbh+HIisrlZ7MeTx02KcLLI4eE89dwmUGSFT6L5kK7YrSSwa1Ovfm7ILpehiYVIrWQ==}
+  node-cron@4.0.7:
+    resolution: {integrity: sha512-A37UUDpxRT/kWanELr/oMayCWQFk9Zx9BEUoXrAKuKwKzH4XuAX+vMixMBPkgZBkADgJwXv91w5cMRTNSVP/mA==}
     engines: {node: '>=6.0.0'}
 
   nth-check@2.1.1:
@@ -1802,7 +1802,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-cron@4.0.6: {}
+  node-cron@4.0.7: {}
 
   nth-check@2.1.1:
     dependencies:
