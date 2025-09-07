@@ -12,16 +12,16 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "dotenv": "^17.2.1",
+    "dotenv": "^17.2.2",
     "node-cron": "^4.2.1",
     "tsx": "^4.20.5"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.8.4",
-    "@types/node": "^22.18.0",
+    "@rhyster/eslint-config": "^1.8.5",
+    "@types/node": "^22.18.1",
     "@types/node-cron": "^3.0.11",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.15.0"
+  "packageManager": "pnpm@10.15.1"
 }
