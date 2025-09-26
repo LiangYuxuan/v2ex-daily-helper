@@ -14,7 +14,7 @@
   "dependencies": {
     "dotenv": "^17.2.2",
     "node-cron": "^4.2.1",
-    "tsx": "^4.20.5"
+    "tsx": "^4.20.6"
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.8.6",
