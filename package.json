@@ -13,15 +13,15 @@
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "node-cron": "^4.3.0",
+    "node-cron": "^4.4.1",
     "tsx": "^4.22.4"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^2.0.17",
+    "@rhyster/eslint-config": "^2.0.18",
     "@types/node": "^24.13.2",
     "@types/node-cron": "^3.0.11",
     "eslint": "^10.5.0",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@11.7.0"
+  "packageManager": "pnpm@11.8.0"
 }
