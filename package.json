@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "node-cron": "^4.5.0",
+    "node-cron": "^4.6.0",
     "tsx": "^4.23.0"
   },
   "devDependencies": {
