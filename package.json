@@ -12,12 +12,12 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "dotenv": "^18.0.8",
+    "dotenv": "^18.0.9",
     "node-cron": "^4.6.0",
     "tsx": "^4.23.15"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^2.0.36",
+    "@rhyster/eslint-config": "^2.0.37",
     "@types/node": "^24.19.2",
     "@types/node-cron": "^3.0.11",
     "eslint": "^10.13.0",
